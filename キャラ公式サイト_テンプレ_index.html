@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>【イルカのふりをする子】公式サイト</title>
+  <meta name="description" content="【キャラ名】の公式サイト。プロフィール、ギャラリー、最新情報、リンク集。" />
+  <style>
+    :root{
+      --bg:#CFE7FF;         /* 背景 */
+      --panel:#ffffff;       /* パネル */
+      --ink:#1f2937;         /* 文字色 */
+      --muted:#6b7280;       /* サブ文字 */
+      --brand:#77B6FF;       /* ブランド色（後で差し替え）*/
+      --accent:#F4A7B9;      /* アクセント */
+      --radius:16px;
+      --shadow:0 6px 24px rgba(17,24,39,.08);
+    }
+    html,body{margin:0;height:100%;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Noto Sans JP",sans-serif;color:var(--ink);background:var(--bg);}    
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1040px;margin:0 auto;padding:24px}
+    header.site{position:sticky;top:0;background:rgba(246,248,251,.8);backdrop-filter:blur(8px);border-bottom:1px solid #e5e7eb;z-index:20}
+    .nav{display:flex;align-items:center;gap:16px;justify-content:space-between;padding:12px 0}
+    .nav a{font-weight:600}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand-logo{width:40px;height:40px;border-radius:50%;background:var(--brand);display:grid;place-items:center;color:#fff;font-weight:800}
+    .pill{display:inline-block;padding:4px 10px;border-radius:999px;background:#eef6ff;color:#2563eb;font-size:12px}
+    .grid{display:grid;gap:20px}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
+    .card{background:var(--panel);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
+    .cta{display:inline-flex;align-items:center;gap:10px;background:var(--brand);color:#fff;border:none;padding:12px 18px;border-radius:12px;font-weight:700;cursor:pointer}
+    .cta.secondary{background:#1118270d;color:var(--ink)}
+    .section-title{display:flex;align-items:center;justify-content:space-between;margin:4px 0 12px}
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .gallery img{width:100%;height:220px;object-fit:cover;border-radius:14px}
+    .links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .link-item{display:flex;align-items:center;gap:12px;padding:14px;border-radius:12px;border:1px solid #e5e7eb;background:#fff}
+    .link-icon{width:32px;height:32px;border-radius:8px;background:var(--brand);display:grid;place-items:center;color:#fff;font-weight:800}
+    .news{display:grid;gap:12px}
+    .news article{padding:14px;border-radius:12px;border:1px solid #e5e7eb;background:#fff}
+    .footer{color:var(--muted);font-size:14px;padding:40px 0}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .links{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site">
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-logo">★</div>
+        <div>
+          <div style="font-weight:800">イルカのふりをする子</div>
+          <div class="pill">公式サイト</div>
+        </div>
+      </div>
+      <nav style="display:flex;gap:16px">
+        <a href="#about">プロフィール</a>
+        <a href="#gallery">ギャラリー</a>
+        <a href="#news">お知らせ</a>
+        <a href="#links">リンク</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top:28px">
+    <!-- Hero -->
+    <section class="grid hero">
+      <div class="card">
+        <h1 style="margin:0 0 6px;font-size:clamp(28px,4vw,44px);line-height:1.15">イルカのふりをする子 公式サイト</h1>
+        <p style="color:var(--muted);margin:0 0 16px">サメだけど、やさしくいたい。だから今日もイルカのふりをする――<br>繊細でがんばり屋の“擬態キャラ”の公式サイトです。</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="cta" onclick="document.getElementById('links').scrollIntoView({behavior:'smooth'});">SNSへ</button>
+          <a class="cta secondary" href="#gallery">ギャラリーを見る</a>
+        </div>
+      </div>
+      <div class="card" style="min-height:280px;display:grid;place-items:center;text-align:center">
+        <div>
+          <div style="font-size:13px;color:var(--muted);margin-bottom:8px">キービジュアル（差し替え）</div>
+          <img src="https://placehold.co/560x320/png" alt="key visual" style="max-width:100%;border-radius:14px" />
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" style="margin-top:26px" class="grid" >
+      <div class="card">
+        <div class="section-title">
+          <h2 style="margin:0">プロフィール</h2>
+        </div>
+        <p>本当はサメだけど、やさしいイルカになりたくて"フリ"してます😶<br>ふわふわ水色ボディに小さな牙と背びれが、ほんの少しだけ本性をのぞかせる...?<br>気配り上手で空回りもしがち。ときどきサメっぽさが出て「またバレそう…」と胸がきゅっとなる。でも豆腐が好きで、尾びれをフリフリごまかす、不器用で愛しい存在です。</p>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    
+
+    <!-- News / Blog -->
+    
+
+    <!-- Links -->
+    <section id="links" style="margin-top:26px">
+      <div class="section-title">
+        <h2 style="margin:0">リンク</h2>
+        <span style="color:var(--muted);font-size:14px">SNS・ショップ・問い合わせ</span>
+      </div>
+      <div class="links">
+        
+      </div>
+    </section>
+
+    <!-- Contact (optional) -->
+    <section style="margin-top:26px" class="card">
+      <h2 style="margin:0 0 8px">お問い合わせ</h2>
+      <p style="color:var(--muted);margin:0 0 12px">お仕事・コラボのご相談は下記メールへ。</p>
+      <a href="mailto:contact@example.com" class="cta">contact@example.com</a>
+    </section>
+
+    <section class="footer">
+      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px">
+        <div>© <span id="y"></span> 【キャラ名】</div>
+        <div><a href="#">利用規約</a> ・ <a href="#">プライバシー</a></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('y').textContent=new Date().getFullYear()
+  </script>
+</body>
+</html>
