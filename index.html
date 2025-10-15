@@ -3,78 +3,72 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>【イルカのふりをする子】公式サイト</title>
-  <meta name="description" content="『イルカのふりをする子』の公式サイト。SNSリンクとプロフィール。">
+  <title>イルカのふりをする子｜公式サイト</title>
+  <meta name="description" content="やさしいイルカになりたくて、“ふり”をしているサメの子。プロフィールと公式リンクをまとめた公式サイト。">
+  <link rel="canonical" href="https://irukanofuriwosurusame.github.io/iruka/">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root{
       --ink:#2b2a29;
-      --panel:#FFFFFF; /* プロフィールカードは白 */
-      --shadow:0 8px 24px rgba(0,0,0,.10);
-      --radius:24px;
+      --blueBg:#E6F5FF;
+      --blueText:#2A70C9;
     }
-    /* 余計な塗りを一切なくす（上下のベタ背景対策） */
-    html,body{
-      margin:0; height:100%;
-      background: transparent !important;
-      color:var(--ink);
-      font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,'Noto Sans JP',sans-serif;
-    }
-    a{color:var(--ink);text-decoration:none}
+    html,body{ margin:0; height:100%; background:transparent; color:var(--ink);
+      font-family:'M PLUS Rounded 1c', -apple-system, BlinkMacSystemFont,'Helvetica Neue',Arial,'Noto Sans JP',sans-serif; }
+    .bg{ position:fixed; inset:0; background:#9ed6f0 url('assets/beach.jpg') center 15% / cover no-repeat;
+      z-index:-1; pointer-events:none; }
 
-    /* ===== 画面全体に固定する背景（唯一の背景） ===== */
-    .bg{
-      position:fixed; inset:0;
-      background: #9ed6f0 url('assets/beach.jpg') center 15% / cover no-repeat;
-      z-index:-1;
-      pointer-events:none;
-    }
+    .container{max-width:980px;margin:0 auto;padding:24px}
 
-    /* ===== フォアグラウンド（動く） ===== */
-    .container{max-width:920px;margin:0 auto;padding:24px}
-    .hero{padding:28px 24px 8px; text-align:center; background: transparent;}
-    .logo-img{width:min(82vw,560px);height:auto;display:block;margin:0 auto 8px;filter:drop-shadow(0 4px 0 rgba(0,0,0,.12))}
-    .mascot-wrap{display:grid;place-items:center;margin:8px 0 16px}
-    .mascot-wrap img{width:min(60vw,440px);height:auto;filter:drop-shadow(0 8px 0 rgba(0,0,0,.10));}
+    /* HERO with logo + mascot */
+    .hero{ padding:36px 24px 6px; text-align:center; }
+    .logo-img{ width:min(80vw, 560px); height:auto; display:block; margin:0 auto 8px;
+      filter:drop-shadow(0 4px 0 rgba(0,0,0,.12)); }
+    .mascot{ width:min(48vw, 420px); height:auto; display:block; margin:6px auto 10px;
+      filter:drop-shadow(0 8px 0 rgba(0,0,0,.10)); }
 
-    .sns-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:0 0 24px}
-    .sns-btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:12px 20px;font-weight:800;color:#fff}
-    .yt{background:#ff0000}
+    .hero-title{ font-weight:900; font-size:clamp(18px,2.8vw,24px); color:#195aa8; margin:8px 0 14px; text-shadow:0 1px 0 rgba(255,255,255,.6); }
+    .sns-cta{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:0 0 28px}
+    .sns-btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:16px 26px;font-weight:900;color:#fff;box-shadow:0 6px 16px rgba(0,0,0,.16)}
+    .tt{background:#000} .yt{background:#ff0000}
     .ig{background:linear-gradient(45deg,#feda75,#d62976,#962fbf,#4f5bd5)}
-    .tt{background:#000}
 
-    /* 白カード。まわりは透明のままにする */
-    .card{background:var(--panel);border-radius:20px;box-shadow:var(--shadow);padding:22px}
-    .section{padding:18px 0; background: transparent;}
-    h2{margin:0 0 10px;font-size:22px}
+    .message-card{ background:var(--blueBg); color:var(--blueText);
+      border-radius:28px; box-shadow:0 12px 40px rgba(0,0,0,.10);
+      padding:46px 34px; text-align:center; line-height:1.9; }
+    .message-card h2{ margin:0 0 18px; font-size:clamp(24px, 3.6vw, 38px); font-weight:900; color:var(--blueText); }
+    .message-card p{ margin:16px 0; font-size:clamp(16px, 2.2vw, 22px); font-weight:700; letter-spacing:.02em; }
 
-    /* フッターも透明（文字だけ） */
-    .footer{color:#2b2a29;font-size:14px;padding:40px 0;text-align:center; background: transparent;}
+    .section{padding:18px 0;}
+    .footer{color:#2b2a29;font-size:14px;padding:40px 0;text-align:center;}
   </style>
 </head>
 <body>
-  <!-- 唯一の背景 -->
   <div class="bg"></div>
 
-  <!-- スクロールする内容 -->
   <header class="hero container">
     <img src="assets/logo.png" alt="イルカのふりをする子 ロゴ" class="logo-img">
-    <div class="mascot-wrap">
-      <img src="assets/character.png" alt="イルカのふりをする子（立ち絵）">
-    </div>
-    <div class="sns-cta">
+    <img src="assets/character.png" alt="イルカのふりをする子（立ち絵）" class="mascot">
+    <p class="hero-title">SNSをフォローしてくれると嬉しいの〜！</p>
+    <div class="sns-cta" aria-label="公式SNSリンク">
+      <a class="sns-btn tt" href="https://www.tiktok.com/@irukanofuriwosurusame" target="_blank" rel="noopener">TikTok</a>
       <a class="sns-btn yt" href="https://www.youtube.com/@%E3%82%A4%E3%83%AB%E3%82%AB%E3%81%AE%E3%83%95%E3%83%AA%E3%82%92%E3%81%99%E3%82%8B%E5%AD%90" target="_blank" rel="noopener">YouTube</a>
       <a class="sns-btn ig" href="https://www.instagram.com/irukanofuriwosurusame/" target="_blank" rel="noopener">Instagram</a>
-      <a class="sns-btn tt" href="https://www.tiktok.com/@irukanofuriwosurusame" target="_blank" rel="noopener">TikTok</a>
     </div>
   </header>
 
   <main class="container">
     <section class="section">
-      <div class="card">
+      <div class="message-card">
         <h2>イルカのふりをする子って？</h2>
-        <p style="margin:0;line-height:1.8">本当はサメだけど、やさしいイルカになりたくて&quot;フリ&quot;してます😶<br>
-        ふわふわ水色ボディに小さな牙と背びれが、ほんの少しだけ本性をのぞかせる...?<br>
-        気配り上手で空回りもしがち。ときどきサメっぽさが出て「またバレそう…」と胸がきゅっとなる。でも豆腐が好きで、尾びれをフリフリごまかす、不器用で愛しい存在です。</p>
+        <p>本当はサメだけど、やさしいイルカになりたくて“フリ”してます。</p>
+        <p>ふわふわ水色ボディに小さな牙と背びれが、<br>ほんの少しだけ本性をのぞかせる…？</p>
+        <p>気配り上手で空回りもしがち。</p>
+        <p>でも豆腐が好きで、尾びれをフリフリごまかす、</p>
+        <p>不器用で愛しい存在です。</p>
       </div>
     </section>
 
@@ -82,7 +76,6 @@
       © <span id="y"></span> イルカのふりをする子
     </section>
   </main>
-
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
