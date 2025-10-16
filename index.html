@@ -128,14 +128,16 @@ body{
 <main>
   <div class="container">
     <div class="profile-wrap">
-      <!-- 装飾レイヤー -->
-      <div class="profile-decor" aria-hidden="true">
-        <img class="dec dec-cloud-left"  src="assets/雲.png"     alt="">
-        <img class="dec dec-char-left"   src="assets/素材1.png"  alt="">
-        <img class="dec dec-cloud-right" src="assets/雲.png"     alt="">
-        <img class="dec dec-char-right"  src="assets/素材3.png"  alt="">
-      </div>
+      <!-- 装飾レイヤー（クリック無効・画像だけ） -->
+<div class="profile-decor" aria-hidden="true">
+  <!-- 左側の雲＆キャラ -->
+  <img class="dec dec-cloud-left"  src="assets/cloud.png"         alt="">
+  <img class="dec dec-char-left"   src="assets/chara_strong.png"  alt="">
 
+  <!-- 右側の雲＆キャラ -->
+  <img class="dec dec-cloud-right" src="assets/cloud.png"         alt="">
+  <img class="dec dec-char-right"  src="assets/chara_hat.png"     alt="">
+</div>
       <!-- プロフィール本体：元の中身に戻す -->
       <section class="section profile" id="profile">
         <h2>イルカのふりをする子って？</h2>
