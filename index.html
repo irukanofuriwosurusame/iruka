@@ -8,7 +8,6 @@
 <link rel="canonical" href="https://irukanofuriwosurusame.github.io/iruka/" />
 <meta name="robots" content="index,follow" />
 
-<!-- Fonts（400/500/600/700/800/900 を読み込み） -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -16,9 +15,9 @@
 <style>
 :root{
   --fv-zoom: 100%;
-  --band:#d0e6ff;      /* ご指定の濃いめの水色 */
-  --theme:#2A70C9;     /* 文字色（濃いめ水色系） */
-  --soft:#E8F6FF;      /* 上部の薄い水色 */
+  --band:#d0e6ff;
+  --theme:#2A70C9;
+  --soft:#E8F6FF;
   --card:#fff;
 }
 *{box-sizing:border-box}
@@ -28,238 +27,70 @@ body{
   background:var(--soft);
   color:#203246;
 }
-
-/* ===== First View ===== */
-.fv{
-  min-height: 100svh;
-  position: relative;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-  background: url('assets/PPG.png') center / var(--fv-zoom) no-repeat;
-}
+.fv{min-height: 100svh; position: relative; overflow: hidden; display: grid; place-items: center; background: url('assets/PPG.png') center / var(--fv-zoom) no-repeat;}
 .fv-fade{position:absolute; inset:auto 0 0 0; height:20vh; background:linear-gradient(to bottom, rgba(232,246,255,0) 0%, var(--soft) 85%);}
-
-/* ===== main ===== */
 .container{max-width:1080px; margin:0 auto; padding:0 20px;}
 .section{padding:48px 0;}
-
-/* Profile */
-.profile{text-align:center; color:var(--theme);}
-.profile h2{margin:0 0 14px; font-size:clamp(22px,3vw,34px); font-weight:900;}
-.profile p{margin:10px 0; font-size:clamp(15px,1.9vw,20px); font-weight:700; letter-spacing:.02em; line-height:1.9;}
-.profile .space{height:16px;}
-.pill-list{display:flex; flex-direction:column; gap:16px; margin-top:8px;}
-.pill{
-  background:var(--card);
-  color:var(--theme);
-  border-radius:28px;
-  box-shadow:0 10px 22px rgba(42,112,201,.12), 0 2px 0 rgba(255,255,255,.9) inset;
-  padding:16px 20px;
-  font-weight:650; /* 指示どおり */
-  line-height:1.6;
-  text-align:center;
-  font-size:clamp(16px,1.7vw,20px);
-}
-
-/* ===== Band (below クセ...) ===== */
-.band{width:100%; background:var(--band);}
-.band .section{padding:56px 0;}
-
-/* SNS */
+/* Profile hero images */
+.profile-hero{ width:100%; aspect-ratio: 1920 / 1080; background: url('assets/profile-hero-desktop.png') center top / contain no-repeat; }
+@media (max-width:780px){ .profile-hero{ aspect-ratio:1080/1580; background-image:url('assets/profile-hero-mobile.png'); background-size:cover; background-position:center top; } }
+/* SNS/Contact existing */
+.band{width:100%; background:var(--band);} .band .section{padding:56px 0;}
 .sns h3{text-align:center; color:#1e69c0; margin:0 0 6px; font-size:clamp(18px,2.2vw,22px); font-weight:900;}
-.sns-note{
-  text-align:center;
-  color:#6b86ad;
-  font-size:17px;      /* ご指定 */
-  line-height:1.7;     /* ご指定 */
-  margin-bottom:16px;
-}
+.sns-note{ text-align:center; color:#6b86ad; font-size:17px; line-height:1.7; margin-bottom:16px; }
 .sns-grid{display:grid; grid-template-columns:repeat(3, minmax(220px,1fr)); gap:18px;}
 .sns-card{display:flex; align-items:center; gap:14px; background:var(--card); color:#203246; text-decoration:none; border-radius:16px; padding:18px; box-shadow:0 10px 26px rgba(0,0,0,.10); transition:transform .15s ease, box-shadow .15s ease;}
-.sns-card:hover{transform:translateY(-2px); box-shadow:0 14px 34px rgba(0,0,0,.14);}
-.sns-logo{width:52px; height:52px; display:block;}
-.sns-title{font-size:18px; font-weight:900; color:#111;}
-
-/* Contact（軽いセクション化 & 下線リンク） */
-#contact.contact{padding:64px 0; background:#d0e6ff;}
-.contact-inner{max-width:960px; margin:0 auto; text-align:center; padding:0 20px;}
-/* 見出し：太さ下げ、本文/リンクも軽め */
+.sns-card:hover{transform:translateY(-2px); box-shadow:0 14px 34px rgba(0,0,0,.14);} .sns-logo{width:52px; height:52px; display:block;} .sns-title{font-size:18px; font-weight:900; color:#111;}
+#contact.contact{padding:64px 0; background:#d0e6ff;} .contact-inner{max-width:960px; margin:0 auto; text-align:center; padding:0 20px;}
 .contact-title{margin:0 0 18px; font-size:clamp(28px,4.5vw,56px); font-weight:500; color:#2c3a49; letter-spacing:.01em;}
 .contact-lead{margin:0; font-size:clamp(16px,2.3vw,28px); line-height:1.7; color:#2b3a48; font-weight:400;}
-.contact-lead .inline-link{color:#2f64d2; text-decoration:underline; text-underline-offset:3px; font-weight:600;}
-.contact-lead .inline-link:hover{opacity:.85;}
-
-/* 旧カード/ボタンの保険（非表示） */
-.contact-card{background:transparent!important; box-shadow:none!important; border:none!important; padding:0!important; margin:0!important;}
-.contact-card .btn,.contact-card .cta,.contact-card .cta-row{display:none!important;}
-
-/* 装飾のための枠（雲/キャラを本文の背面に） */
-/* --- Profile decorations (REPLACE FROM HERE) --- */
-.profile-wrap{
-  position: relative;
-  isolation: isolate;         /* 装飾を本文の下に閉じ込める */
-  padding-bottom: 120px;      /* 下にキャラが少しかかる余白を確保 */
-}
-.profile-decor{
-  position: absolute;
-  inset: 0;
-  pointer-events: none;       /* クリックの邪魔をしない */
-  z-index: 0;                 /* 本文より下 */
-}
-.profile-wrap .profile{
-  position: relative;
-  z-index: 1;                 /* 本文を最前面に */
-}
-
-/* 画像のにじみ防止＆比率保持 */
-.dec{
-  image-rendering: -webkit-optimize-contrast;
-  max-width: 100%;
-  height: auto;
-}
-
-/* ===== 左側（雲 + つよめちゃん） ===== */
-.dec-cloud-left{
-  position:absolute;
-  left:  min(40px, 4vw);      /* 40px を上限とする左寄せ */
-  top:   -18px;               /* ほんの少し被せる */
-  width: clamp(160px, 18vw, 240px);
-  opacity:.95;
-}
-.dec-char-left{
-  position:absolute;
-  left:  clamp(32px, 8vw, 100px);
-  bottom:-28px;               /* ピルの下に少し重なる高さ */
-  width: clamp(160px, 20vw, 220px);
-}
-
-/* ===== 右側（雲 + 帽子ちゃん） ===== */
-.dec-cloud-right{
-  position:absolute;
-  right: min(40px, 4vw);
-  top:   -8px;
-  width: clamp(150px, 17vw, 220px);
-  opacity:.95;
-}
-.dec-char-right{
-  position:absolute;
-  right: clamp(28px, 7vw, 90px);
-  bottom:-34px;
-  width: clamp(170px, 21vw, 240px);
-}
-
-/* モバイル調整（横幅780px以下） */
-@media (max-width: 780px){
-  .profile-wrap{ padding-bottom: 80px; }
-
-  .dec-cloud-left  { left:  8px; top:-12px;  width: 140px; }
-  .dec-char-left   { left: 14px; bottom:-22px; width: 130px; }
-
-  .dec-cloud-right { right: 8px; top:-6px;   width: 140px; }
-  .dec-char-right  { right:12px; bottom:-24px; width: 140px; }
-}
-/* --- Profile decorations (REPLACE TO HERE) --- */
-  
-  .dec-cloud-left  { left:-24px; top:-18px;  width:160px; }
-  .dec-char-left   { left: 10px; bottom:-24px; width:120px; }
-  .dec-cloud-right { right:-26px; top:0;     width:170px; }
-  .dec-char-right  { right: 8px; bottom:-28px; width:130px; }
-}
-
-/* Footer */
+.contact-lead .inline-link{color:#2f64d2; text-decoration:underline; text-underline-offset:3px; font-weight:600;} .contact-lead .inline-link:hover{opacity:.85;}
 .footer{text-align:center; color:#354d6e; padding:32px 0; font-size:13px;}
-
-@media (max-width:900px){
-  .sns-grid{grid-template-columns:1fr;}
-}
+@media (max-width:900px){ .sns-grid{grid-template-columns:1fr;} }
 </style>
 </head>
 <body>
-
-<!-- First View -->
 <section class="fv" aria-label="ファーストビュー">
   <div class="fv-fade" aria-hidden="true"></div>
 </section>
-
 <main>
-  <div class="container">
-    <div class="profile-wrap">
-      <!-- 装飾レイヤー（クリック無効・画像だけ） -->
-<div class="profile-decor" aria-hidden="true">
-  <!-- 左側の雲＆キャラ -->
-  <img class="dec dec-cloud-left"  src="assets/cloud.png"         alt="">
-  <img class="dec dec-char-left"   src="assets/chara_strong.png"  alt="">
+  <section class="profile-hero" aria-label="プロフィール"></section>
+  <div class="band"><div class="container">
+    <section class="section sns" id="sns">
+      <h3>公式SNS</h3>
+      <p class="sns-note">たくさんコメントしてくれると嬉しいの〜！</p>
+      <div class="sns-grid">
+        <a class="sns-card" href="https://www.tiktok.com/@irukanofuriwosurusame" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg class="sns-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img"><circle cx="32" cy="32" r="32" fill="#000"/><path d="M41 24.5c2.5 1.9 5 2.9 7.6 3v6.1c-3.2-.2-6.1-1.3-8.8-3.3v9.4c0 6.6-5.4 11.3-12 11.3-3 0-5.8-1-7.9-2.8a10 10 0 0 1 8.6-17c1 0 2 .2 3 .5v6.4a4.5 4.5 0 0 0-3-.9 4.7 4.7 0 0 0-4.6 4.8c0 2.7 2.1 4.7 5 4.7a5.6 5.6 0 0 0 5.8-5.6V12h6.3c.4 4.9 2.8 9 7 12.5z" fill="#fff"/></svg>
+          <div class="sns-title">TikTok</div>
+        </a>
+        <a class="sns-card" href="https://www.youtube.com/@%E3%82%A4%E3%83%AB%E3%82%AB%E3%81%AE%E3%83%95%E3%83%AA%E3%82%92%E3%81%99%E3%82%8B%E5%AD%90" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg class="sns-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img"><rect x="6" y="14" width="52" height="36" rx="10" fill="#FF0000"/><polygon points="28,22 28,42 46,32" fill="#fff"/></svg>
+          <div class="sns-title">YouTube</div>
+        </a>
+        <a class="sns-card" href="https://www.instagram.com/irukanofuriwosurusame/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg class="sns-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img">
+            <defs><linearGradient id="igG" x1="0" x2="1" y1="1" y2="0"><stop offset="0" stop-color="#FEDA75"/><stop offset="0.3" stop-color="#D62976"/><stop offset="0.6" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient></defs>
+            <rect x="6" y="6" width="52" height="52" rx="14" fill="url(#igG)"/><circle cx="32" cy="32" r="12" fill="none" stroke="#fff" stroke-width="6"/><circle cx="44" cy="20" r="4" fill="#fff"/>
+          </svg>
+          <div class="sns-title">Instagram</div>
+        </a>
+      </div>
+    </section>
 
-  <!-- 右側の雲＆キャラ -->
-  <img class="dec dec-cloud-right" src="assets/cloud.png"         alt="">
-  <img class="dec dec-char-right"  src="assets/chara_hat.png"     alt="">
-</div>
-      <!-- プロフィール本体：元の中身に戻す -->
-      <section class="section profile" id="profile">
-        <h2>イルカのふりをする子って？</h2>
-        <p>本当はサメだけど、やさしいイルカになりたくて“フリ”してます。</p>
-        <p>ふわふわ水色ボディに小さな牙と背びれが、<br>ほんの少しだけ本性をのぞかせる…？</p>
-        <p>気配り上手で空回りもしがち。</p>
-        <p>でも豆腐が好きで、尾びれをフリフリごまかす、</p>
-        <p>不器用で愛しい存在です。</p>
-        <div class="space"></div>
-        <div class="pill-list">
-          <div class="pill"><b>大好き</b>：豆腐</div>
-          <div class="pill"><b>性格</b>：がんばり屋／気配り上手（でも空回りしがち...）</div>
-          <div class="pill"><b>特長</b>：歯はぎこちない八重歯</div>
-          <div class="pill"><b>日常</b>：イルカのみんなに、サメと疑われないように普段は牙を隠しているよ！</div>
-          <div class="pill"><b>クセ</b>：ドキッとすると、無意識に尾びれをフリフリしてごまかしちゃうの...</div>
-        </div>
-      </section>
-    </div>
-  </div>
-
-  <!-- Deeper blue band -->
-  <div class="band">
-    <div class="container">
-      <!-- SNS -->
-      <section class="section sns" id="sns">
-        <h3>公式SNS</h3>
-        <p class="sns-note">たくさんコメントしてくれると嬉しいの〜！</p>
-        <div class="sns-grid">
-          <a class="sns-card" href="https://www.tiktok.com/@irukanofuriwosurusame" target="_blank" rel="noopener" aria-label="TikTok">
-            <svg class="sns-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img"><circle cx="32" cy="32" r="32" fill="#000"/><path d="M41 24.5c2.5 1.9 5 2.9 7.6 3v6.1c-3.2-.2-6.1-1.3-8.8-3.3v9.4c0 6.6-5.4 11.3-12 11.3-3 0-5.8-1-7.9-2.8a10 10 0 0 1 8.6-17c1 0 2 .2 3 .5v6.4a4.5 4.5 0 0 0-3-.9 4.7 4.7 0 0 0-4.6 4.8c0 2.7 2.1 4.7 5 4.7a5.6 5.6 0 0 0 5.8-5.6V12h6.3c.4 4.9 2.8 9 7 12.5z" fill="#fff"/></svg>
-            <div class="sns-title">TikTok</div>
-          </a>
-          <a class="sns-card" href="https://www.youtube.com/@%E3%82%A4%E3%83%AB%E3%82%AB%E3%81%AE%E3%83%95%E3%83%AA%E3%82%92%E3%81%99%E3%82%8B%E5%AD%90" target="_blank" rel="noopener" aria-label="YouTube">
-            <svg class="sns-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img"><rect x="6" y="14" width="52" height="36" rx="10" fill="#FF0000"/><polygon points="28,22 28,42 46,32" fill="#fff"/></svg>
-            <div class="sns-title">YouTube</div>
-          </a>
-          <a class="sns-card" href="https://www.instagram.com/irukanofuriwosurusame/" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg class="sns-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img">
-              <defs><linearGradient id="igG" x1="0" x2="1" y1="1" y2="0"><stop offset="0" stop-color="#FEDA75"/><stop offset="0.3" stop-color="#D62976"/><stop offset="0.6" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient></defs>
-              <rect x="6" y="6" width="52" height="52" rx="14" fill="url(#igG)"/><circle cx="32" cy="32" r="12" fill="none" stroke="#fff" stroke-width="6"/><circle cx="44" cy="20" r="4" fill="#fff"/>
-            </svg>
-            <div class="sns-title">Instagram</div>
-          </a>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" class="contact">
-        <div class="contact-inner">
-          <h2 class="contact-title">お問い合わせ</h2>
-          <p class="contact-lead">
-            おしごと・コラボのご相談は
-            <a class="inline-link" href="mailto:irukanofuriwosurusame@gmail.com">こちら</a>
-            にお気軽にどうぞ
-          </p>
-        </div>
-      </section>
-
-      <section class="footer">© <span id="y"></span> イルカのふりをする子</section>
-    </div>
-  </div>
+    <section id="contact" class="contact">
+      <div class="contact-inner">
+        <h2 class="contact-title">お問い合わせ</h2>
+        <p class="contact-lead">
+          おしごと・コラボのご相談は
+          <a class="inline-link" href="mailto:irukanofuriwosurusame@gmail.com">こちら</a>
+          にお気軽にどうぞ
+        </p>
+      </div>
+    </section>
+    <section class="footer">© <span id="y"></span> イルカのふりをする子</section>
+  </div></div>
 </main>
-
-<script>
-document.getElementById('y').textContent = new Date().getFullYear();
-</script>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
