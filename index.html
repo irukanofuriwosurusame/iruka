@@ -12,35 +12,40 @@
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --theme:#2A70C9;     /* 濃いめ水色（文字） */
-  --soft:#E6F5FF;      /* 薄い水色（ベタ背景） */
-  --card:#ffffff;
+  --fv-zoom: 100%;
+  --band:#d0e6ffff;     /* ご指定の濃いめの水色 */
+  --theme:#2A70C9;      /* 文字色（濃いめ水色系） */
+  --soft:#E8F6FF;       /* 上部の薄い水色 */
+  --card:#fff;
 }
+*{box-sizing:border-box}
 html,body{margin:0}
 body{
   font-family:'M PLUS Rounded 1c', -apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,'Noto Sans JP',sans-serif;
   background:var(--soft);
-  color:#284059;
+  color:#203246;
 }
 
 /* ===== First View ===== */
-.fv{min-height:100svh; position:relative; overflow:hidden; display:grid; place-items:center;}
-.fv .fv-bg{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;}
-.fv-fade{position:absolute; inset:auto 0 0 0; height:22vh; background:linear-gradient(to bottom, rgba(230,245,255,0) 0%, var(--soft) 85%);}
-.fv-inner{position:relative; z-index:1;}
-.logo{width:min(86vw,560px); height:auto; filter:drop-shadow(0 4px 0 rgba(0,0,0,.12));}
+.fv{
+  min-height: 100svh;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: url('assets/PPG.png') center / var(--fv-zoom) no-repeat;
+}
+.fv-fade{position:absolute; inset:auto 0 0 0; height:20vh; background:linear-gradient(to bottom, rgba(232,246,255,0) 0%, var(--soft) 85%);}
 
-/* ===== main sections ===== */
+/* ===== main ===== */
 .container{max-width:1080px; margin:0 auto; padding:0 20px;}
 .section{padding:48px 0;}
 
-/* Profile text */
+/* Profile */
 .profile{text-align:center; color:var(--theme);}
 .profile h2{margin:0 0 14px; font-size:clamp(22px,3vw,34px); font-weight:900;}
-.profile p{margin:8px 0; font-size:clamp(15px,1.9vw,20px); font-weight:700; letter-spacing:.02em; line-height:1.9;}
+.profile p{margin:10px 0; font-size:clamp(15px,1.9vw,20px); font-weight:700; letter-spacing:.02em; line-height:1.9;}
 .profile .space{height:16px;}
-
-/* Mini profile pills — smaller */
 .pill-list{display:flex; flex-direction:column; gap:16px; margin-top:8px;}
 .pill{
   background:var(--card);
@@ -54,7 +59,11 @@ body{
   font-size:clamp(16px,1.7vw,20px);
 }
 
-/* SNS cards */
+/* ===== Band (below クセ...) ===== */
+.band{width:100%; background:var(--band);}
+.band .section{padding:56px 0;}
+
+/* SNS */
 .sns h3{text-align:center; color:#1e69c0; margin:0 0 6px; font-size:clamp(18px,2.2vw,22px); font-weight:900;}
 .sns-note{text-align:center; color:#6b86ad; font-size:13px; margin-bottom:16px;}
 .sns-grid{display:grid; grid-template-columns:repeat(3, minmax(220px,1fr)); gap:18px;}
@@ -65,8 +74,8 @@ body{
 
 /* Contact */
 .contact{text-align:center;}
-.contact .box{display:inline-block; background:#fff; border-radius:16px; box-shadow:0 10px 24px rgba(0,0,0,.08); padding:18px 22px;}
-.contact a{display:inline-block; margin-top:8px; background:var(--theme); color:#fff; text-decoration:none; border-radius:999px; padding:10px 18px; font-weight:800; box-shadow:0 6px 16px rgba(0,0,0,.16);}
+.contact .box{display:inline-block; background:#fff; border-radius:16px; box-shadow:0 10px 24px rgba(0,0,0,.08); padding:20px 24px;}
+.contact a{display:inline-block; margin-top:10px; background:var(--theme); color:#fff; text-decoration:none; border-radius:999px; padding:10px 18px; font-weight:800; box-shadow:0 6px 16px rgba(0,0,0,.16);}
 
 /* Footer */
 .footer{text-align:center; color:#354d6e; padding:32px 0; font-size:13px;}
@@ -78,65 +87,68 @@ body{
 
 <!-- First View -->
 <section class="fv" aria-label="ファーストビュー">
-  <img class="fv-bg" src="assets/PPG.png" alt="背景" />
-  <div class="fv-inner">
-    <img class="logo" src="assets/logo.png" alt="イルカのふりをする子 ロゴ" />
-  </div>
   <div class="fv-fade" aria-hidden="true"></div>
 </section>
 
-<main class="container">
-  <!-- Profile -->
-  <section class="section profile" id="profile">
-    <h2>イルカのふりをする子って？</h2>
-    <p>本当はサメだけど、やさしいイルカになりたくて“フリ”してます。</p>
-    <p>ふわふわ水色ボディに小さな牙と背びれが、<br>ほんの少しだけ本性をのぞかせる…？</p>
-    <p>気配り上手で空回りもしがち。</p>
-    <p>でも豆腐が好きで、尾びれをフリフリごまかす、</p>
-    <p>不器用で愛しい存在です。</p>
-    <div class="space"></div>
-    <div class="pill-list">
-      <div class="pill"><b>大好き</b>：豆腐</div>
-      <div class="pill"><b>性格</b>：がんばり屋／気配り上手（でも空回りしがち...）</div>
-      <div class="pill"><b>特長</b>：歯はぎこちない八重歯</div>
-      <div class="pill"><b>日常</b>：イルカのみんなに、サメと疑われないように普段は牙を隠しているよ！</div>
-      <div class="pill"><b>クセ</b>：ドキッとすると、無意識に尾びれをフリフリしてごまかしちゃうの...</div>
-    </div>
-  </section>
+<main>
+  <div class="container">
+    <!-- Profile -->
+    <section class="section profile" id="profile">
+      <h2>イルカのふりをする子って？</h2>
+      <p>本当はサメだけど、やさしいイルカになりたくて“フリ”してます。</p>
+      <p>ふわふわ水色ボディに小さな牙と背びれが、<br>ほんの少しだけ本性をのぞかせる…？</p>
+      <p>気配り上手で空回りもしがち。</p>
+      <p>でも豆腐が好きで、尾びれをフリフリごまかす、</p>
+      <p>不器用で愛しい存在です。</p>
+      <div class="space"></div>
+      <div class="pill-list">
+        <div class="pill"><b>大好き</b>：豆腐</div>
+        <div class="pill"><b>性格</b>：がんばり屋／気配り上手（でも空回りしがち...）</div>
+        <div class="pill"><b>特長</b>：歯はぎこちない八重歯</div>
+        <div class="pill"><b>日常</b>：イルカのみんなに、サメと疑われないように普段は牙を隠しているよ！</div>
+        <div class="pill"><b>クセ</b>：ドキッとすると、無意識に尾びれをフリフリしてごまかしちゃうの...</div>
+      </div>
+    </section>
+  </div>
 
-  <!-- SNS -->
-  <section class="section sns" id="sns">
-    <h3>公式SNS</h3>
-    <p class="sns-note">たくさんコメントしてくれると嬉しいの〜！</p>
-    <div class="sns-grid">
-      <a class="sns-card" href="https://www.tiktok.com/@irukanofuriwosurusame" target="_blank" rel="noopener" aria-label="TikTok">
-        <svg class="sns-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img"><circle cx="32" cy="32" r="32" fill="#000"/><path d="M41 24.5c2.5 1.9 5 2.9 7.6 3v6.1c-3.2-.2-6.1-1.3-8.8-3.3v9.4c0 6.6-5.4 11.3-12 11.3-3 0-5.8-1-7.9-2.8a10 10 0 0 1 8.6-17c1 0 2 .2 3 .5v6.4a4.5 4.5 0 0 0-3-.9 4.7 4.7 0 0 0-4.6 4.8c0 2.7 2.1 4.7 5 4.7a5.6 5.6 0 0 0 5.8-5.6V12h6.3c.4 4.9 2.8 9 7 12.5z" fill="#fff"/></svg>
-        <div class="sns-title">TikTok</div>
-      </a>
-      <a class="sns-card" href="https://www.youtube.com/@%E3%82%A4%E3%83%AB%E3%82%AB%E3%81%AE%E3%83%95%E3%83%AA%E3%82%92%E3%81%99%E3%82%8B%E5%AD%90" target="_blank" rel="noopener" aria-label="YouTube">
-        <svg class="sns-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img"><rect x="6" y="14" width="52" height="36" rx="10" fill="#FF0000"/><polygon points="28,22 28,42 46,32" fill="#fff"/></svg>
-        <div class="sns-title">YouTube</div>
-      </a>
-      <a class="sns-card" href="https://www.instagram.com/irukanofuriwosurusame/" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg class="sns-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img">
-          <defs><linearGradient id="igG" x1="0" x2="1" y1="1" y2="0"><stop offset="0" stop-color="#FEDA75"/><stop offset="0.3" stop-color="#D62976"/><stop offset="0.6" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient></defs>
-          <rect x="6" y="6" width="52" height="52" rx="14" fill="url(#igG)"/><circle cx="32" cy="32" r="12" fill="none" stroke="#fff" stroke-width="6"/><circle cx="44" cy="20" r="4" fill="#fff"/>
-        </svg>
-        <div class="sns-title">Instagram</div>
-      </a>
-    </div>
-  </section>
+  <!-- Everything below here is the deeper blue band -->
+  <div class="band">
+    <div class="container">
+      <!-- SNS -->
+      <section class="section sns" id="sns">
+        <h3>公式SNS</h3>
+        <p class="sns-note">たくさんコメントしてくれると嬉しいの〜！</p>
+        <div class="sns-grid">
+          <a class="sns-card" href="https://www.tiktok.com/@irukanofuriwosurusame" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg class="sns-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img"><circle cx="32" cy="32" r="32" fill="#000"/><path d="M41 24.5c2.5 1.9 5 2.9 7.6 3v6.1c-3.2-.2-6.1-1.3-8.8-3.3v9.4c0 6.6-5.4 11.3-12 11.3-3 0-5.8-1-7.9-2.8a10 10 0 0 1 8.6-17c1 0 2 .2 3 .5v6.4a4.5 4.5 0 0 0-3-.9 4.7 4.7 0 0 0-4.6 4.8c0 2.7 2.1 4.7 5 4.7a5.6 5.6 0 0 0 5.8-5.6V12h6.3c.4 4.9 2.8 9 7 12.5z" fill="#fff"/></svg>
+            <div class="sns-title">TikTok</div>
+          </a>
+          <a class="sns-card" href="https://www.youtube.com/@%E3%82%A4%E3%83%AB%E3%82%AB%E3%81%AE%E3%83%95%E3%83%AA%E3%82%92%E3%81%99%E3%82%8B%E5%AD%90" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg class="sns-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img"><rect x="6" y="14" width="52" height="36" rx="10" fill="#FF0000"/><polygon points="28,22 28,42 46,32" fill="#fff"/></svg>
+            <div class="sns-title">YouTube</div>
+          </a>
+          <a class="sns-card" href="https://www.instagram.com/irukanofuriwosurusame/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg class="sns-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img">
+              <defs><linearGradient id="igG" x1="0" x2="1" y1="1" y2="0"><stop offset="0" stop-color="#FEDA75"/><stop offset="0.3" stop-color="#D62976"/><stop offset="0.6" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient></defs>
+              <rect x="6" y="6" width="52" height="52" rx="14" fill="url(#igG)"/><circle cx="32" cy="32" r="12" fill="none" stroke="#fff" stroke-width="6"/><circle cx="44" cy="20" r="4" fill="#fff"/>
+            </svg>
+            <div class="sns-title">Instagram</div>
+          </a>
+        </div>
+      </section>
 
-  <!-- Contact -->
-  <section class="section contact" id="contact">
-    <div class="box">
-      <h3>お問い合わせ</h3>
-      <p>おしごと・コラボのご相談はお気軽にどうぞ</p>
-      <a href="mailto:irukanofuriwosurusame@gmail.com">メールする</a>
-    </div>
-  </section>
+      <!-- Contact -->
+      <section class="section contact" id="contact">
+        <div class="box">
+          <h3>お問い合わせ</h3>
+          <p>おしごと・コラボのご相談はお気軽にどうぞ</p>
+          <a href="mailto:irukanofuriwosurusame@gmail.com">メールする</a>
+        </div>
+      </section>
 
-  <section class="footer">© <span id="y"></span> イルカのふりをする子</section>
+      <section class="footer">© <span id="y"></span> イルカのふりをする子</section>
+    </div>
+  </div>
 </main>
 
 <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
