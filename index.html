@@ -7,16 +7,18 @@
 <meta name="description" content="やさしいイルカになりたくて、“ふり”をしているサメの子。プロフィールと公式リンク・お問い合わせの公式サイト。" />
 <link rel="canonical" href="https://irukanofuriwosurusame.github.io/iruka/" />
 <meta name="robots" content="index,follow" />
+
+<!-- Fonts（400/500/600/700/800/900 を読み込み） -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- フォントはそのまま（400/700/800/900）。650は実質700に近い重みで表示されます -->
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
 :root{
   --fv-zoom: 100%;
-  --band:#d0e6ffff;     /* ご指定の濃いめの水色 */
-  --theme:#2A70C9;      /* 文字色（濃いめ水色系） */
-  --soft:#E8F6FF;       /* 上部の薄い水色 */
+  --band:#d0e6ff;      /* ご指定の濃いめの水色 */
+  --theme:#2A70C9;     /* 文字色（濃いめ水色系） */
+  --soft:#E8F6FF;      /* 上部の薄い水色 */
   --card:#fff;
 }
 *{box-sizing:border-box}
@@ -54,7 +56,7 @@ body{
   border-radius:28px;
   box-shadow:0 10px 22px rgba(42,112,201,.12), 0 2px 0 rgba(255,255,255,.9) inset;
   padding:16px 20px;
-  font-weight:650;       /* ご指定 */
+  font-weight:650; /* 指示どおり */
   line-height:1.6;
   text-align:center;
   font-size:clamp(16px,1.7vw,20px);
@@ -65,53 +67,33 @@ body{
 .band .section{padding:56px 0;}
 
 /* SNS */
-.sns h3{
-  text-align:center; color:#1e69c0;
-  margin:0;                 /* 下の余白をゼロに */
-  line-height:1.1;          /* 見出しの行間をタイトに */
-  font-size:clamp(18px,2.2vw,22px); font-weight:900;
-}
-.sns-note{
-  text-align:center; color:#6b86ad; font-size:17px;
-  line-height:1.4;          /* 行間を少し詰める */
-  margin:4px 0 12px;        /* 上4px / 下12px にして見出しとの間を詰める */
-}
-
+.sns h3{text-align:center; color:#1e69c0; margin:0 0 6px; font-size:clamp(18px,2.2vw,22px); font-weight:900;}
+.sns-note{text-align:center; color:#6b86ad; font-size:17px; line-height:1.7; margin-bottom:16px;}
 .sns-grid{display:grid; grid-template-columns:repeat(3, minmax(220px,1fr)); gap:18px;}
 .sns-card{display:flex; align-items:center; gap:14px; background:var(--card); color:#203246; text-decoration:none; border-radius:16px; padding:18px; box-shadow:0 10px 26px rgba(0,0,0,.10); transition:transform .15s ease, box-shadow .15s ease;}
 .sns-card:hover{transform:translateY(-2px); box-shadow:0 14px 34px rgba(0,0,0,.14);}
 .sns-logo{width:52px; height:52px; display:block;}
 .sns-title{font-size:18px; font-weight:900; color:#111;}
 
-/* ===== Contact（下線リンクのみ。ボタン化しない） ===== */
-#contact{padding:64px 0;}
+/* Contact（軽いセクション化 & 下線リンク） */
+#contact.contact{padding:64px 0; background:#d0e6ff;}
 .contact-inner{max-width:960px; margin:0 auto; text-align:center; padding:0 20px;}
-.contact-title { font-weight: 500; }   /* 800 → 700 に */
-.contact-lead  { font-weight: 300; }   /* 600 → 500 に */
-.contact-lead .inline-link { font-weight: 600; } /* 700 → 600 に */
-
-
-/* 下線リンクだけ適用（競合を避けるため contact内のaボタン指定は置かない） */
-.contact-lead .inline-link{
-  color:#2f64d2;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  font-weight:700;
-}
+/* 太さを落とす：見出し700 / 本文500 / リンク600 */
+.contact-title{margin:0 0 24px; font-size:clamp(28px,4.5vw,56px); font-weight:500; color:#2c3a49; letter-spacing:.01em;}
+.contact-lead{margin:0; font-size:clamp(18px,2.3vw,28px); line-height:1.7; color:#2b3a48; font-weight:300;}
+.contact-lead .inline-link{color:#2f64d2; text-decoration:underline; text-underline-offset:3px; font-weight:300;}
 .contact-lead .inline-link:hover{opacity:.85;}
+
+/* 旧カード/ボタンの保険（非表示） */
+.contact-card{background:transparent!important; box-shadow:none!important; border:none!important; padding:0!important; margin:0!important;}
+.contact-card .btn,.contact-card .cta,.contact-card .cta-row{display:none!important;}
 
 /* Footer */
 .footer{text-align:center; color:#354d6e; padding:32px 0; font-size:13px;}
 
-/* レスポンシブ */
-@media (max-width: 900px){
+@media (max-width:900px){
   .sns-grid{grid-template-columns:1fr;}
 }
-  /* お問い合わせ 見出し・本文・リンクの太さを少し細く */
-.contact-title { font-weight: 500; }
-.contact-lead  { font-weight: 300; }
-.contact-lead .inline-link { font-weight: 200; }
-
 </style>
 </head>
 <body>
@@ -142,7 +124,7 @@ body{
     </section>
   </div>
 
-  <!-- Everything below here is the deeper blue band -->
+  <!-- Deeper blue band -->
   <div class="band">
     <div class="container">
       <!-- SNS -->
