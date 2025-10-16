@@ -94,6 +94,63 @@ body{
 @media (max-width:900px){
   .sns-grid{grid-template-columns:1fr;}
 }
+  /* === Profile decorations === */
+.profile-wrap{
+  position: relative;
+  isolation: isolate;          /* 装飾をこの中に閉じ込める */
+}
+.profile-decor{
+  position: absolute;
+  inset: 0;                    /* wrap全体に広げる */
+  pointer-events: none;        /* クリックを邪魔しない */
+  z-index: 0;
+}
+.profile-wrap .profile{
+  position: relative;
+  z-index: 1;                  /* 本文を装飾より上に */
+}
+
+/* 共通: 画像はにじみ防止＆綺麗に縮小 */
+.dec{ image-rendering: -webkit-optimize-contrast; max-width: 100%; height: auto; }
+
+/* --- 左側 --- */
+.dec-cloud-left{
+  position:absolute;
+  left: clamp(-40px, -6vw, -80px);
+  top:  clamp(-20px, -2vw, -40px);
+  width: clamp(160px, 22vw, 260px);
+  opacity: .95;
+}
+.dec-char-left{
+  position:absolute;
+  left: clamp(-10px, 4vw, 40px);
+  bottom: clamp(-30px, -3vw, -60px);
+  width: clamp(120px, 16vw, 180px);
+}
+
+/* --- 右側 --- */
+.dec-cloud-right{
+  position:absolute;
+  right: clamp(-50px, -6vw, -90px);
+  top:   clamp(10px, 3vw, 40px);
+  width: clamp(200px, 24vw, 300px);
+  opacity: .95;
+}
+.dec-char-right{
+  position:absolute;
+  right: clamp(-10px, 4vw, 40px);
+  bottom: clamp(-36px, -3.5vw, -70px);
+  width: clamp(130px, 17vw, 200px);
+}
+
+/* スマホでは重なりを弱める */
+@media (max-width: 780px){
+  .dec-cloud-left  { left: -24px; top: -18px;  width: 160px; }
+  .dec-char-left   { left:  10px; bottom:-24px; width: 120px; }
+  .dec-cloud-right { right:-26px; top:  0px;   width: 170px; }
+  .dec-char-right  { right:  8px; bottom:-28px; width: 130px; }
+}
+
 </style>
 </head>
 <body>
@@ -105,25 +162,24 @@ body{
 
 <main>
   <div class="container">
-    <!-- Profile -->
+  <div class="profile-wrap">
+    <!-- 装飾レイヤー（クリック無効・画像だけ） -->
+    <div class="profile-decor" aria-hidden="true">
+      <!-- 左側の雲＆キャラ -->
+      <img class="dec dec-cloud-left"  src="assets/雲.png"     alt="">
+      <img class="dec dec-char-left"   src="assets/素材1.png"  alt="">
+
+      <!-- 右側の雲＆キャラ -->
+      <img class="dec dec-cloud-right" src="assets/雲.png"     alt="">
+      <img class="dec dec-char-right"  src="assets/素材3.png"  alt="">
+    </div>
+
+    <!-- 既存のプロフィール本体（中身はそのまま） -->
     <section class="section profile" id="profile">
-      <h2>イルカのふりをする子って？</h2>
-      <p>本当はサメだけど、やさしいイルカになりたくて“フリ”してます。</p>
-      <p>ふわふわ水色ボディに小さな牙と背びれが、<br>ほんの少しだけ本性をのぞかせる…？</p>
-      <p>気配り上手で空回りもしがち。</p>
-      <p>でも豆腐が好きで、尾びれをフリフリごまかす、</p>
-      <p>不器用で愛しい存在です。</p>
-      <div class="space"></div>
-      <div class="pill-list">
-        <div class="pill"><b>大好き</b>：豆腐</div>
-        <div class="pill"><b>性格</b>：がんばり屋／気配り上手（でも空回りしがち...）</div>
-        <div class="pill"><b>特長</b>：歯はぎこちない八重歯</div>
-        <div class="pill"><b>日常</b>：イルカのみんなに、サメと疑われないように普段は牙を隠しているよ！</div>
-        <div class="pill"><b>クセ</b>：ドキッとすると、無意識に尾びれをフリフリしてごまかしちゃうの...</div>
-      </div>
+      …プロフィールの中身（見出し・文章・ピル）…
     </section>
   </div>
-
+</div>
   <!-- Deeper blue band -->
   <div class="band">
     <div class="container">
