@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- フォントはそのまま（400/700/800/900）。650は実質700に近い重みで表示されます -->
-<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
   --fv-zoom: 100%;
@@ -65,14 +65,18 @@ body{
 .band .section{padding:56px 0;}
 
 /* SNS */
-.sns h3{text-align:center; color:#1e69c0; margin:0 0 6px; font-size:clamp(18px,2.2vw,22px); font-weight:900;}
-.sns-note{
-  text-align:center;
-  color:#6b86ad;
-  font-size:17px;       /* ご指定 */
-  line-height:1.7;      /* ご指定 */
-  margin-bottom:16px;
+.sns h3{
+  text-align:center; color:#1e69c0;
+  margin:0;                 /* 下の余白をゼロに */
+  line-height:1.1;          /* 見出しの行間をタイトに */
+  font-size:clamp(18px,2.2vw,22px); font-weight:900;
 }
+.sns-note{
+  text-align:center; color:#6b86ad; font-size:17px;
+  line-height:1.4;          /* 行間を少し詰める */
+  margin:4px 0 12px;        /* 上4px / 下12px にして見出しとの間を詰める */
+}
+
 .sns-grid{display:grid; grid-template-columns:repeat(3, minmax(220px,1fr)); gap:18px;}
 .sns-card{display:flex; align-items:center; gap:14px; background:var(--card); color:#203246; text-decoration:none; border-radius:16px; padding:18px; box-shadow:0 10px 26px rgba(0,0,0,.10); transition:transform .15s ease, box-shadow .15s ease;}
 .sns-card:hover{transform:translateY(-2px); box-shadow:0 14px 34px rgba(0,0,0,.14);}
@@ -82,8 +86,10 @@ body{
 /* ===== Contact（下線リンクのみ。ボタン化しない） ===== */
 #contact{padding:64px 0;}
 .contact-inner{max-width:960px; margin:0 auto; text-align:center; padding:0 20px;}
-.contact-title{margin:0 0 24px; font-size:clamp(28px,4.5vw,56px); font-weight:800; color:#2c3a49; letter-spacing:.01em;}
-.contact-lead{margin:0; font-size:clamp(18px,2.3vw,28px); line-height:1.7; color:#2b3a48; font-weight:600;}
+.contact-title { font-weight: 700; }   /* 800 → 700 に */
+.contact-lead  { font-weight: 500; }   /* 600 → 500 に */
+.contact-lead .inline-link { font-weight: 600; } /* 700 → 600 に */
+
 
 /* 下線リンクだけ適用（競合を避けるため contact内のaボタン指定は置かない） */
 .contact-lead .inline-link{
