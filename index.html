@@ -134,6 +134,42 @@ body{
 .contact-card .cta-row{
   display: none !important;
 }
+/* ===== 修正の上書き（ここから） ===== */
+
+/* ご希望の数値に更新 */
+.pill { font-weight: 650; }  /* フォントに650が無いので実体は700に近い表示になります */
+.sns-note {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* 「こちら」を下線リンクにするためのリセット＆装飾 */
+.contact a.inline-link{
+  /* まずボタン化していたプロパティを打ち消す */
+  display: inline;
+  background: transparent;
+  color: #2f64d2;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+
+  /* 下線リンクの見た目 */
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 700;
+}
+.contact a.inline-link:hover{
+  opacity: .85;
+}
+
+/* 旧ボタン類がもし残っていても見えないよう保険 */
+.contact-card,
+.contact .btn,
+.contact .cta,
+.contact .cta-row { display: none !important; }
+
+/* ===== 修正の上書き（ここまで） ===== */
 
 </style>
 </head>
