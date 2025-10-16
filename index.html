@@ -9,6 +9,7 @@
 <meta name="robots" content="index,follow" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- フォントはそのまま（400/700/800/900）。650は実質700に近い重みで表示されます -->
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -53,7 +54,7 @@ body{
   border-radius:28px;
   box-shadow:0 10px 22px rgba(42,112,201,.12), 0 2px 0 rgba(255,255,255,.9) inset;
   padding:16px 20px;
-  font-weight:900;
+  font-weight:650;       /* ご指定 */
   line-height:1.6;
   text-align:center;
   font-size:clamp(16px,1.7vw,20px);
@@ -65,112 +66,41 @@ body{
 
 /* SNS */
 .sns h3{text-align:center; color:#1e69c0; margin:0 0 6px; font-size:clamp(18px,2.2vw,22px); font-weight:900;}
-.sns-note{text-align:center; color:#6b86ad; font-size:17px; margin-bottom:16px;}
+.sns-note{
+  text-align:center;
+  color:#6b86ad;
+  font-size:17px;       /* ご指定 */
+  line-height:1.7;      /* ご指定 */
+  margin-bottom:16px;
+}
 .sns-grid{display:grid; grid-template-columns:repeat(3, minmax(220px,1fr)); gap:18px;}
 .sns-card{display:flex; align-items:center; gap:14px; background:var(--card); color:#203246; text-decoration:none; border-radius:16px; padding:18px; box-shadow:0 10px 26px rgba(0,0,0,.10); transition:transform .15s ease, box-shadow .15s ease;}
 .sns-card:hover{transform:translateY(-2px); box-shadow:0 14px 34px rgba(0,0,0,.14);}
 .sns-logo{width:52px; height:52px; display:block;}
 .sns-title{font-size:18px; font-weight:900; color:#111;}
 
-/* Contact */
-.contact{text-align:center;}
-.contact .box{display:inline-block; background:#fff; border-radius:16px; box-shadow:0 10px 24px rgba(0,0,0,.08); padding:20px 24px;}
-.contact a{display:inline-block; margin-top:10px; background:var(--theme); color:#fff; text-decoration:none; border-radius:999px; padding:10px 18px; font-weight:800; box-shadow:0 6px 16px rgba(0,0,0,.16);}
+/* ===== Contact（下線リンクのみ。ボタン化しない） ===== */
+#contact{padding:64px 0;}
+.contact-inner{max-width:960px; margin:0 auto; text-align:center; padding:0 20px;}
+.contact-title{margin:0 0 24px; font-size:clamp(28px,4.5vw,56px); font-weight:800; color:#2c3a49; letter-spacing:.01em;}
+.contact-lead{margin:0; font-size:clamp(18px,2.3vw,28px); line-height:1.7; color:#2b3a48; font-weight:600;}
 
-/* Footer */
-.footer{text-align:center; color:#354d6e; padding:32px 0; font-size:13px;}
-
-@media (max-width: 900px){ .sns-grid{grid-template-columns:1fr;} }
-  /* ---------- Contact: 軽いセクション化 & 下線リンク ---------- */
-#contact.contact {
-  padding: 64px 0;              /* セクションの上下余白 */
-  background: #d0e6ff;          /* 既存のページ背景と同系色ならそのままでOK */
-}
-
-.contact-inner {
-  max-width: 960px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 0 20px;
-}
-
-.contact-title {
-  margin: 0 0 24px;
-  font-size: clamp(28px, 4.5vw, 56px);
-  font-weight: 800;             /* 見出しはしっかり太く */
-  color: #2c3a49;               /* ダークグレー系 */
-  letter-spacing: .01em;
-}
-
-.contact-lead {
-  margin: 0;
-  font-size: clamp(18px, 2.3vw, 28px);
-  line-height: 1.7;
-  color: #2b3a48;
-  font-weight: 600;
-}
-
-/* 下線リンクだけ（ボタンは使わない） */
+/* 下線リンクだけ適用（競合を避けるため contact内のaボタン指定は置かない） */
 .contact-lead .inline-link{
   color:#2f64d2;
   text-decoration: underline;
   text-underline-offset: 3px;
   font-weight:700;
 }
-.contact-lead .inline-link:hover{
-  opacity:.85;
+.contact-lead .inline-link:hover{opacity:.85;}
+
+/* Footer */
+.footer{text-align:center; color:#354d6e; padding:32px 0; font-size:13px;}
+
+/* レスポンシブ */
+@media (max-width: 900px){
+  .sns-grid{grid-template-columns:1fr;}
 }
-
-/* もし以前の「白いカード」やボタンのスタイルが残っていても見えなくする保険 */
-.contact-card{
-  background: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-.contact-card .btn,
-.contact-card .cta,
-.contact-card .cta-row{
-  display: none !important;
-}
-/* ===== 修正の上書き（ここから） ===== */
-
-/* ご希望の数値に更新 */
-.pill { font-weight: 650; }  /* フォントに650が無いので実体は700に近い表示になります */
-.sns-note {
-  font-size: 17px;
-  line-height: 1.7;
-}
-
-/* 「こちら」を下線リンクにするためのリセット＆装飾 */
-.contact a.inline-link{
-  /* まずボタン化していたプロパティを打ち消す */
-  display: inline;
-  background: transparent;
-  color: #2f64d2;
-  padding: 0;
-  border-radius: 0;
-  box-shadow: none;
-  margin: 0;
-
-  /* 下線リンクの見た目 */
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  font-weight: 700;
-}
-.contact a.inline-link:hover{
-  opacity: .85;
-}
-
-/* 旧ボタン類がもし残っていても見えないよう保険 */
-.contact-card,
-.contact .btn,
-.contact .cta,
-.contact .cta-row { display: none !important; }
-
-/* ===== 修正の上書き（ここまで） ===== */
-
 </style>
 </head>
 <body>
@@ -228,23 +158,24 @@ body{
       </section>
 
       <!-- Contact -->
-      <!-- お問い合わせ -->
-<section id="contact" class="contact">
-  <div class="contact-inner">
-    <h2 class="contact-title">お問い合わせ</h2>
-    <p class="contact-lead">
-      おしごと・コラボのご相談は
-      <a class="inline-link" href="mailto:irukanofuriwosurusame@gmail.com">こちら</a>
-      にお気軽にどうぞ
-    </p>
-  </div>
-</section>
+      <section id="contact" class="contact">
+        <div class="contact-inner">
+          <h2 class="contact-title">お問い合わせ</h2>
+          <p class="contact-lead">
+            おしごと・コラボのご相談は
+            <a class="inline-link" href="mailto:irukanofuriwosurusame@gmail.com">こちら</a>
+            にお気軽にどうぞ
+          </p>
+        </div>
+      </section>
 
       <section class="footer">© <span id="y"></span> イルカのふりをする子</section>
     </div>
   </div>
 </main>
 
-<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+<script>
+document.getElementById('y').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
