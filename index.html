@@ -81,6 +81,60 @@ body{
 .footer{text-align:center; color:#354d6e; padding:32px 0; font-size:13px;}
 
 @media (max-width: 900px){ .sns-grid{grid-template-columns:1fr;} }
+  /* ---------- Contact: 軽いセクション化 & 下線リンク ---------- */
+#contact.contact {
+  padding: 64px 0;              /* セクションの上下余白 */
+  background: #d0e6ff;          /* 既存のページ背景と同系色ならそのままでOK */
+}
+
+.contact-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.contact-title {
+  margin: 0 0 24px;
+  font-size: clamp(28px, 4.5vw, 56px);
+  font-weight: 800;             /* 見出しはしっかり太く */
+  color: #2c3a49;               /* ダークグレー系 */
+  letter-spacing: .01em;
+}
+
+.contact-lead {
+  margin: 0;
+  font-size: clamp(18px, 2.3vw, 28px);
+  line-height: 1.7;
+  color: #2b3a48;
+  font-weight: 600;
+}
+
+/* 下線リンクだけ（ボタンは使わない） */
+.contact-lead .inline-link{
+  color:#2f64d2;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight:700;
+}
+.contact-lead .inline-link:hover{
+  opacity:.85;
+}
+
+/* もし以前の「白いカード」やボタンのスタイルが残っていても見えなくする保険 */
+.contact-card{
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.contact-card .btn,
+.contact-card .cta,
+.contact-card .cta-row{
+  display: none !important;
+}
+
 </style>
 </head>
 <body>
@@ -138,15 +192,17 @@ body{
       </section>
 
       <!-- Contact -->
-      <section class="section contact" id="contact">
-        <div class="box">
-          <h3>お問い合わせ</h3>
-          <p>おしごと・コラボのご相談は 
-  <a class="inline-link" href="mailto:irukanofuriwosurusame@gmail.com">こちら</a> 
-  にお気軽にどうぞ
-</p>
-        </div>
-      </section>
+      <!-- お問い合わせ -->
+<section id="contact" class="contact">
+  <div class="contact-inner">
+    <h2 class="contact-title">お問い合わせ</h2>
+    <p class="contact-lead">
+      おしごと・コラボのご相談は
+      <a class="inline-link" href="mailto:irukanofuriwosurusame@gmail.com">こちら</a>
+      にお気軽にどうぞ
+    </p>
+  </div>
+</section>
 
       <section class="footer">© <span id="y"></span> イルカのふりをする子</section>
     </div>
